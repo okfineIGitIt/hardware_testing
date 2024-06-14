@@ -4,11 +4,6 @@ from devices.abstract_device import AbstractDevice
 from drivers.abstract_driver import AbstractDriver
 
 
-class Response(Enum):
-    ACK = "ack"
-    NACK = "nack"
-
-
 class DeviceA(AbstractDevice):
     def __init__(self, driver: AbstractDriver, device_address):
         if not isinstance(driver, AbstractDriver):
