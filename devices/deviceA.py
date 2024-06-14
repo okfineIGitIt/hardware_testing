@@ -1,5 +1,3 @@
-from enum import Enum
-
 from devices.abstract_device import AbstractDevice
 from drivers.abstract_driver import AbstractDriver
 
