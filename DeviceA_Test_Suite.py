@@ -1,7 +1,22 @@
 from devices.deviceA import DeviceA
 from drivers.rs422_driver import RS422Driver
 
+"""
+Future considerations should include:
+- Test manager class could be useful for assigning and naming device objects for better
+    organisation. Could be useful for running tests for multiple devices at the
+    same time.
 
+- If many devices are being tested simultaneously or if test is running for a
+    long time, might need tests running in separate threads.
+
+- Ability for operators running tests to monitor, stop, rerun tests in an
+    intuitive way.
+
+- Inclusion of config files for tracking device parameters, test paramters, etc.
+
+- Logging of results
+"""
 def run_quick_test():
     test_successful = True
     command = "QUICK"
@@ -35,8 +50,9 @@ def run_quick_test():
 
     # Teardown
     # In testing frameworks like pytest there would be a teardown method
-    # (and test function decorators and helpers), keeping this
-    # example minimal.
+    # (and test function decorators and helpers) which would always be
+    # executed after a test is complete regardless of success or failure,
+    # keeping this example minimal.
     # However a proper test framework of some sort is required for more extensive/formal
     # testing.
     device.Shutdown()

@@ -5,7 +5,7 @@
     - Windows 11 used for testing (Windows 10 should also work)
 - Python installed on above machine
     - Make sure the python executable path is added to the Windows PATH
-        environment variable.
+        environment variable
     - Exact version used for testing: python-3.11.2
     - Version 3.8 and above will likely work, but not gauranteed
 - Git installed on above machine
