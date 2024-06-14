@@ -13,7 +13,7 @@ Future considerations should include:
 - Ability for operators running tests to monitor, stop, rerun tests in an
     intuitive way.
 
-- Inclusion of config files for tracking device parameters, test paramters, etc.
+- Inclusion of config files for tracking device parameters, test parameters, etc.
 
 - Logging of results
 """
@@ -59,6 +59,7 @@ def run_quick_test():
 
 
 def run_full_test():
+    test_successful = True
     command = "FULL"
     expected_response = "FULL"
 
@@ -77,11 +78,21 @@ def run_full_test():
 
     response = device.ReceiveCommand()
 
-    assert(response == expected_response)
+    try:
+        assert(response == expected_response)
+    except AssertionError as ae:
+        test_successful = False
+        print(ae)
+
+    if test_successful:
+        print("Full test successful")
+    else:
+        print("Full test unsuccessful")
 
     device.Shutdown()
-    print("Quick test successful")
+
 
 if __name__ == "__main__":
     run_quick_test()
     run_full_test()
+    print("Tests complete!")

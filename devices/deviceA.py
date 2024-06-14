@@ -8,11 +8,13 @@ Some improvements to be made on the Device level:
 
 - State tracking: same vein as above, should have defined states for device
     and way to query those states
+
+- IsConnected() function might be useful to add to device interface.
 """
 class DeviceA(AbstractDevice):
     def __init__(self, driver: AbstractDriver, device_address):
         if not isinstance(driver, AbstractDriver):
-            raise TypeError(f"driver object passed into {self.__class__} object must be derived from AbstractDriver class")
+            raise TypeError(f"driver object passed into {self.__class__} object must be child of AbstractDriver class")
         
         self._driver = driver
         self._device_address = device_address

@@ -1,23 +1,24 @@
 from drivers.abstract_driver import AbstractDriver
 
 
+"""
+Improvements:
+- Better error handling for all functions (maybe enums with different error types)
+"""
 class RS422Driver(AbstractDriver):
     def __init__(self) -> None:
-        self._is_connected = False
         self._last_message = ""
     
     def Connect(self):
-        if not self._is_connected:
-            # do something to connect to actual device here
-            self._is_connected = True 
+        # Do something to connect to actual device here.
+        self._is_connected = True
 
     def Disconnect(self):
-        if self._is_connected:
-            # do something to disconnect here
-            self._is_connected = False
+        # do something to disconnect here
+        self._is_connected = False
 
     def Send(self, message):
-        # some code to send message
+        # some custom driver code to send message
         self._last_message = message
 
     def Receive(self):
